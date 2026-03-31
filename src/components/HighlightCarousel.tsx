@@ -39,9 +39,8 @@ const formatDate = (d: string) => {
 
 const HighlightCarousel = () => {
   return (
-    <section className="py-8 lg:py-12">
-      <div className="container mx-auto px-4">
-        <Carousel
+    <section>
+      <Carousel
           opts={{ loop: true, align: "start" }}
           plugins={[Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })]}
           className="w-full"
