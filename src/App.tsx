@@ -10,6 +10,7 @@ import Blog from "./pages/Blog.tsx";
 import BlogArticle from "./pages/BlogArticle.tsx";
 import Rankings from "./pages/Rankings.tsx";
 import CollectionDetail from "./pages/CollectionDetail.tsx";
+import Events from "./pages/Events.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/blog/:slug" element={<BlogArticle />} />
           <Route path="/rankings" element={<Rankings />} />
           <Route path="/rankings/:slug" element={<CollectionDetail />} />
+          <Route path="/events" element={<Events />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
