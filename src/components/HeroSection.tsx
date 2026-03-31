@@ -21,7 +21,7 @@ const HeroSection = () => {
           <span className="text-primary">Favorite Place</span>
         </h1>
         <p className="font-body text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-          Explore the best restaurants, cafés, and bars — curated by food lovers, for food lovers.
+          Explore the best restaurants, cafés, and bars — your go-to guide for every craving.
         </p>
 
         {/* Search Bar */}

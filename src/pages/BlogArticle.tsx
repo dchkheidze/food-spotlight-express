@@ -65,7 +65,7 @@ const BlogArticle = () => {
           </BreadcrumbList>
         </Breadcrumb>
 
-        <article className="prose-foodlover">
+        <article className="prose-restgo">
           {article.content.map((block, i) => {
             if (block.type === "heading") return <h2 key={i} className="font-display text-2xl font-semibold text-foreground mt-10 mb-4">{block.value}</h2>;
             if (block.type === "image") return (

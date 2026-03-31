@@ -6,10 +6,10 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-1">
             <a href="/" className="font-display text-2xl font-bold">
-              Food<span className="text-primary">Lover</span>
+              Rest<span className="text-primary">Go</span>
             </a>
             <p className="text-background/60 text-sm mt-3 leading-relaxed">
-              Your guide to the best dining experiences. Discover, explore, and savor.
+              Your go-to guide for discovering the best restaurants, cafés, and bars.
             </p>
           </div>
 
@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-background/10 pt-6 text-center text-sm text-background/40">
-          © {new Date().getFullYear()} FoodLover. All rights reserved.
+          © {new Date().getFullYear()} RestGo. All rights reserved.
         </div>
       </div>
     </footer>
