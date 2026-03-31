@@ -48,7 +48,7 @@ const HighlightCarousel = () => {
           <CarouselContent>
             {slides.map((slide, idx) => (
               <CarouselItem key={`${slide.type}-${slide.id}-${idx}`}>
-                <div className="relative h-[320px] md:h-[400px] rounded-2xl overflow-hidden group">
+                <div className="relative h-[400px] md:h-[500px] overflow-hidden group">
                   <img
                     src={slide.image}
                     alt={slide.title}
