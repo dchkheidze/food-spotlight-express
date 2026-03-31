@@ -58,14 +58,14 @@ const Header = () => {
       {mobileOpen && (
         <nav className="md:hidden border-t border-border bg-card px-4 pb-4">
           {navLinks.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
+            <Link
+              key={link.label}
+              to={link.path}
               className="block py-3 text-sm font-medium text-muted-foreground hover:text-primary transition-colors border-b border-border last:border-0"
               onClick={() => setMobileOpen(false)}
             >
-              {link}
-            </a>
+              {link.label}
+            </Link>
           ))}
         </nav>
       )}
