@@ -29,7 +29,7 @@ export const foodEvents: FoodEvent[] = [
     category: "Brunch", isFree: false,
   },
   {
-    id: "e3", title: "Natural Wine Tasting: Kakheti Special", image: "https://images.unsplash.com/photo-1529543544282-ea97407e3587?w=600&h=400&fit=crop",
+    id: "e3", title: "Natural Wine Tasting: Kakheti Special", image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&h=400&fit=crop",
     date: "2026-04-10", time: "18:00", venue: "Wine Underground", venueSlug: "wine-underground",
     description: "Taste 8 rare qvevri wines from Kakheti's finest small producers, guided by a sommelier.",
     category: "Wine Tasting", isFree: false,
