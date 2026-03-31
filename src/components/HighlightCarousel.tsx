@@ -39,9 +39,8 @@ const formatDate = (d: string) => {
 
 const HighlightCarousel = () => {
   return (
-    <section className="py-8 lg:py-12">
-      <div className="container mx-auto px-4">
-        <Carousel
+    <section>
+      <Carousel
           opts={{ loop: true, align: "start" }}
           plugins={[Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })]}
           className="w-full"
@@ -49,7 +48,7 @@ const HighlightCarousel = () => {
           <CarouselContent>
             {slides.map((slide, idx) => (
               <CarouselItem key={`${slide.type}-${slide.id}-${idx}`}>
-                <div className="relative h-[320px] md:h-[400px] rounded-2xl overflow-hidden group">
+                <div className="relative h-[400px] md:h-[500px] overflow-hidden group">
                   <img
                     src={slide.image}
                     alt={slide.title}
@@ -88,7 +87,6 @@ const HighlightCarousel = () => {
           <CarouselPrevious className="left-4 md:left-6 bg-background/80 backdrop-blur-sm border-border" />
           <CarouselNext className="right-4 md:right-6 bg-background/80 backdrop-blur-sm border-border" />
         </Carousel>
-      </div>
     </section>
   );
 };
