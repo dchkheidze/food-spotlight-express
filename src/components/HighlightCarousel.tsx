@@ -87,7 +87,6 @@ const HighlightCarousel = () => {
           <CarouselPrevious className="left-4 md:left-6 bg-background/80 backdrop-blur-sm border-border" />
           <CarouselNext className="right-4 md:right-6 bg-background/80 backdrop-blur-sm border-border" />
         </Carousel>
-      </div>
     </section>
   );
 };
