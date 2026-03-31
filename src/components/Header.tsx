@@ -19,7 +19,7 @@ const Header = () => {
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
         {/* Logo */}
         <Link to="/" className="font-display text-2xl font-bold tracking-tight text-foreground">
-          Food<span className="text-primary">Lover</span>
+          Rest<span className="text-primary">Go</span>
         </Link>
 
         {/* Desktop Nav */}

@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-background/10 pt-6 text-center text-sm text-background/40">
-          © {new Date().getFullYear()} FoodLover. All rights reserved.
+          © {new Date().getFullYear()} RestGo. All rights reserved.
         </div>
       </div>
     </footer>
