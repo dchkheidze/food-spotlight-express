@@ -1,23 +1,12 @@
 
 
-# Rebrand FoodLover → RestGo
+# Remove Cuisines Tab & Ensure Cuisine Filtering on Restaurants Page
 
 ## Changes
 
-### 1. `index.html`
-- Update `<title>` and all meta tags from "Lovable App" / "Lovable Generated Project" to "RestGo"
+### 1. `src/components/Header.tsx`
+- Remove the "Cuisines" entry from the `navLinks` array (line `{ label: "Cuisines", path: "/#cuisines" }`).
 
-### 2. `src/components/Header.tsx`
-- Change logo from `Food<span>Lover</span>` to `Rest<span>Go</span>`
-
-### 3. `src/components/Footer.tsx`
-- Change logo from `Food<span>Lover</span>` to `Rest<span>Go</span>`
-- Change tagline to match new brand
-- Update copyright from "FoodLover" to "RestGo"
-
-### 4. `src/components/HeroSection.tsx`
-- Update tagline text ("curated by food lovers, for food lovers" → new copy)
-
-### 5. `src/pages/BlogArticle.tsx`
-- Rename CSS class `prose-foodlover` → `prose-restgo` (cosmetic, no functional impact)
+### 2. Verify existing coverage
+The Restaurants/Discover page already has cuisine filtering via `FilterSidebar.tsx` using `cuisineTypes` from `listingData.ts`. No additional filter work needed — cuisines are already accessible there.
 
