@@ -10,6 +10,7 @@ import Blog from "./pages/Blog.tsx";
 import BlogArticle from "./pages/BlogArticle.tsx";
 import Rankings from "./pages/Rankings.tsx";
 import CollectionDetail from "./pages/CollectionDetail.tsx";
+import Events from "./pages/Events.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
