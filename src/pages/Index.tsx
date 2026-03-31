@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import HighlightCarousel from "@/components/HighlightCarousel";
 import CategoryShortcuts from "@/components/CategoryShortcuts";
 import FeaturedRestaurants from "@/components/FeaturedRestaurants";
 import TopRatedRestaurants from "@/components/TopRatedRestaurants";
@@ -15,6 +16,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection />
+      <HighlightCarousel />
       <CategoryShortcuts />
       <FeaturedRestaurants />
       <TopRatedRestaurants />
