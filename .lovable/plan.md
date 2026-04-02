@@ -1,22 +1,28 @@
 
 
-# Keep RestGo Branding & Consistent Design on Homepage
+# Apply Restaurants Page Design to Homepage
 
-## Problem
-The homepage currently uses "fork.ge" branding and a completely custom nav/layout that doesn't match the rest of the app (e.g., `/restaurants`, `/blog`, `/events`) which all use the shared `Header` and `Footer` components with "RestGo" branding.
+## What
+Replace the current homepage content sections (emoji placeholders, small horizontal-scroll cards) with the same visual style used on `/restaurants` — real image cards using `RestaurantCard`, proper grid layout, and the same typography/spacing patterns.
 
 ## Changes
 
-### `src/pages/Index.tsx`
-1. **Replace custom top nav** with the shared `<Header />` component (RestGo branding, consistent nav links)
-2. **Replace custom bottom tab nav** with the shared `<Footer />` component
-3. **Wrap content** in the same layout pattern as other pages (`min-h-screen bg-background`, with `Header` at top, `Footer` at bottom)
-4. **Keep all 6 content sections** (hero, cuisine filters, new openings, this weekend, deals, from the scene) but render them inside the standard page layout instead of the 430px mobile shell
-5. Adjust the content container to use `max-w-7xl mx-auto px-4 sm:px-6` like other pages, with the mobile-first card sections remaining responsive
+### 1. `src/pages/Index.tsx`
+- Keep Header, Footer, and Hero section as-is
+- Replace the "New openings" emoji cards with a grid of `RestaurantCard` components using data from `listingRestaurants` (filtered to `isNew` ones), displayed in a responsive grid (`grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6`) — same as `/restaurants`
+- Keep "This weekend", "Deals & promotions", and "From the scene" sections but style them with the same card treatment (rounded-2xl, border, proper spacing) as the restaurant cards
+- Wrap each restaurant card in a `<Link>` to `/restaurants/:slug` like the listing page does
+- Use the same section header style (larger text, consistent with `/restaurants` title sizing)
 
-### What stays the same
-- All content sections and their data from `homeMockData.ts`
-- The coral design tokens (`#D85A30`, `#FAECE7`, etc.)
-- Card styling, horizontal scroll rows, section headers
-- No changes to Header, Footer, or any other files
+### 2. `src/data/homeMockData.ts`
+- No changes needed — the "New openings" section will pull from `listingRestaurants` (which already has `isNew` flags and real images) instead of the emoji-based `newOpenings` array
+
+### 3. `src/components/RestaurantCard.tsx`
+- No changes — reuse as-is
+
+### What stays
+- Hero section with search bar and coral design tokens
+- Cuisine quick-filters row
+- All other sections (weekend events, deals, news) — just refined styling
+- Header/Footer (RestGo branding)
 
