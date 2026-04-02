@@ -34,14 +34,22 @@ export interface HomeNews {
   time: string;
 }
 
+import georgianImg from "@/assets/cuisines/georgian.jpg";
+import cafesImg from "@/assets/cuisines/cafes.jpg";
+import wineImg from "@/assets/cuisines/wine.jpg";
+import pizzaImg from "@/assets/cuisines/pizza.jpg";
+import sushiImg from "@/assets/cuisines/sushi.jpg";
+import veganImg from "@/assets/cuisines/vegan.jpg";
+import brunchImg from "@/assets/cuisines/brunch.jpg";
+
 export const cuisineFilters = [
-  { label: "Georgian", emoji: "🇬🇪" },
-  { label: "Cafés", emoji: "☕" },
-  { label: "Wine bars", emoji: "🍷" },
-  { label: "Pizza", emoji: "🍕" },
-  { label: "Sushi", emoji: "🍣" },
-  { label: "Vegan", emoji: "🥗" },
-  { label: "Brunch", emoji: "🥞" },
+  { label: "Georgian", image: georgianImg },
+  { label: "Cafés", image: cafesImg },
+  { label: "Wine bars", image: wineImg },
+  { label: "Pizza", image: pizzaImg },
+  { label: "Sushi", image: sushiImg },
+  { label: "Vegan", image: veganImg },
+  { label: "Brunch", image: brunchImg },
 ];
 
 export const newOpenings: HomeRestaurant[] = [

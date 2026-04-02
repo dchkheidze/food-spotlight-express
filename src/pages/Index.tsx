@@ -42,8 +42,8 @@ const Index = () => {
             <div className="flex gap-4 overflow-x-auto scrollbar-hide">
               {cuisineFilters.map((c) => (
                 <button key={c.label} className="flex flex-col items-center gap-1.5 shrink-0">
-                  <div className="w-[44px] h-[44px] rounded-lg bg-black/[0.04] flex items-center justify-center text-[20px]">
-                    {c.emoji}
+                  <div className="w-[44px] h-[44px] rounded-lg overflow-hidden">
+                    <img src={c.image} alt={c.label} className="w-full h-full object-cover" loading="lazy" width={44} height={44} />
                   </div>
                   <span className="text-[11px] font-normal text-muted-foreground">{c.label}</span>
                 </button>
