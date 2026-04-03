@@ -1,35 +1,49 @@
 
 
-# Replace Cuisine Filter Emojis with Real Images
+# Add Venues Page for Event Spaces
 
 ## What
-Replace the emoji icons in the cuisine quick-filter chips with real food/cuisine images (like the reference screenshot showing styled illustration-style icons for Georgian, Cafés, Wine bars, Pizza, Sushi, Vegan, Brunch).
+A new **Venues** tab/page (`/venues`) listing spaces available for private events — weddings, birthday parties, corporate events, etc. Follows the same design patterns as `/restaurants` and `/events`.
 
 ## Changes
 
-### 1. Source images
-Use free food icon images from Unsplash/Pexels or similar — download 7 small square images (one per cuisine category) and place them in `src/assets/cuisines/`. Each image will be a real photo cropped to work at 44×44px in a rounded container.
+### 1. Create `src/data/venuesData.ts`
+Mock data with 8–10 Tbilisi venues. Each venue has:
+- id, name, slug, image (Unsplash), location, description
+- capacity (e.g. "50–200 guests")
+- eventTypes array (e.g. `["Wedding", "Birthday", "Corporate", "Anniversary"]`)
+- priceRange (e.g. "₾₾₾")
+- rating, phone, features (e.g. "Outdoor terrace", "Live music", "Catering included")
+- isFeatured flag
 
-Images needed:
-- `georgian.jpg` — Georgian food (khinkali/khachapuri)
-- `cafes.jpg` — Coffee cup
-- `wine.jpg` — Wine glass/bottle
-- `pizza.jpg` — Pizza slice
-- `sushi.jpg` — Sushi rolls
-- `vegan.jpg` — Fresh salad/vegetables
-- `brunch.jpg` — Brunch plate/pancakes
+Event type categories: `["All", "Wedding", "Birthday", "Corporate", "Anniversary", "Graduation", "Engagement"]`
 
-### 2. Update `src/data/homeMockData.ts`
-Replace the `emoji` field in `cuisineFilters` with an `image` field pointing to the imported asset path.
+### 2. Create `src/components/VenueCard.tsx`
+Reuses the same card pattern as `RestaurantCard` — image with overlay badges (capacity, price range, rating), venue name, location, event types as small badges. Links to venue detail (future).
 
-### 3. Update `src/pages/Index.tsx`
-In the cuisine quick-filters section, replace the emoji `<div>` with an `<img>` tag using `object-cover` and `rounded-lg` to display the photo in the same 44×44px container.
+### 3. Create `src/pages/Venues.tsx`
+Same layout as Events page:
+- Header + Footer
+- Breadcrumb (Home → Venues)
+- Title + result count + search bar
+- Filter row: event type category pills + capacity select + price select
+- Responsive grid of VenueCard (`grid-cols-1 sm:grid-cols-2 xl:grid-cols-3`)
+- Load More pagination
+- Empty state
+
+### 4. Update `src/App.tsx`
+Add route: `<Route path="/venues" element={<Venues />} />`
+
+### 5. Update `src/components/Header.tsx`
+Add "Venues" to `navLinks` array: `{ label: "Venues", path: "/venues" }`
 
 ## Files
 
 | File | Action |
 |------|--------|
-| `src/assets/cuisines/*.jpg` | Create — 7 cuisine images |
-| `src/data/homeMockData.ts` | Update — swap emoji for image imports |
-| `src/pages/Index.tsx` | Update — render `<img>` instead of emoji text |
+| `src/data/venuesData.ts` | Create |
+| `src/components/VenueCard.tsx` | Create |
+| `src/pages/Venues.tsx` | Create |
+| `src/App.tsx` | Add route |
+| `src/components/Header.tsx` | Add nav link |
 
