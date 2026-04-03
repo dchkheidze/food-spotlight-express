@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Collections", path: "/rankings" },
   { label: "Blog", path: "/blog" },
   { label: "Events", path: "/events" },
+  { label: "Venues", path: "/venues" },
 ];
 
 const Header = () => {
