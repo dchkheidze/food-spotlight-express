@@ -10,6 +10,7 @@ const navLinks = [
   { label: "Blog", path: "/blog" },
   { label: "Events", path: "/events" },
   { label: "Venues", path: "/venues" },
+  { label: "Experiences", path: "/experiences" },
 ];
 
 const Header = () => {
