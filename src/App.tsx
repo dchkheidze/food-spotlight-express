@@ -12,6 +12,7 @@ import Rankings from "./pages/Rankings.tsx";
 import CollectionDetail from "./pages/CollectionDetail.tsx";
 import Events from "./pages/Events.tsx";
 import Venues from "./pages/Venues.tsx";
+import Experiences from "./pages/Experiences.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
