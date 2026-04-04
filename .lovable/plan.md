@@ -1,49 +1,48 @@
 
 
-# Add Venues Page for Event Spaces
+# Add Experiences Page — Local Culinary Experiences
 
 ## What
-A new **Venues** tab/page (`/venues`) listing spaces available for private events — weddings, birthday parties, corporate events, etc. Follows the same design patterns as `/restaurants` and `/events`.
+A new **Experiences** tab (`/experiences`) showcasing family-owned places across Georgia where visitors can enjoy authentic local cuisine experiences — cooking classes, traditional feasts, wine-making tours, etc.
 
 ## Changes
 
-### 1. Create `src/data/venuesData.ts`
-Mock data with 8–10 Tbilisi venues. Each venue has:
-- id, name, slug, image (Unsplash), location, description
-- capacity (e.g. "50–200 guests")
-- eventTypes array (e.g. `["Wedding", "Birthday", "Corporate", "Anniversary"]`)
-- priceRange (e.g. "₾₾₾")
-- rating, phone, features (e.g. "Outdoor terrace", "Live music", "Catering included")
+### 1. Create `src/data/experiencesData.ts`
+Mock data with 9-10 experiences across Georgian regions. Each entry:
+- id, name, slug, image (Unsplash), region (e.g. "Kakheti", "Imereti", "Adjara", "Tbilisi"), location
+- hostFamily (e.g. "The Giorgadze Family"), description
+- cuisineType (e.g. "Kakhetian", "Imeretian", "Adjarian", "Megrelian")
+- duration (e.g. "3-4 hours"), groupSize (e.g. "2–8 guests")
+- price (e.g. "₾80/person"), rating, reviewCount
+- includes array (e.g. "Cooking class", "Wine tasting", "Farm tour", "Traditional supra")
 - isFeatured flag
 
-Event type categories: `["All", "Wedding", "Birthday", "Corporate", "Anniversary", "Graduation", "Engagement"]`
+Region categories: `["All", "Kakheti", "Imereti", "Adjara", "Svaneti", "Mtskheta", "Tbilisi", "Racha"]`
 
-### 2. Create `src/components/VenueCard.tsx`
-Reuses the same card pattern as `RestaurantCard` — image with overlay badges (capacity, price range, rating), venue name, location, event types as small badges. Links to venue detail (future).
+### 2. Create `src/components/ExperienceCard.tsx`
+Same card pattern as `VenueCard` — image with overlay badges (price, rating), family name, region, cuisine type, duration and group size info, includes tags.
 
-### 3. Create `src/pages/Venues.tsx`
-Same layout as Events page:
-- Header + Footer
-- Breadcrumb (Home → Venues)
-- Title + result count + search bar
-- Filter row: event type category pills + capacity select + price select
-- Responsive grid of VenueCard (`grid-cols-1 sm:grid-cols-2 xl:grid-cols-3`)
-- Load More pagination
-- Empty state
+### 3. Create `src/pages/Experiences.tsx`
+Same layout as Venues page:
+- Header + Footer + Breadcrumb (Home → Experiences)
+- Title ("Authentic Georgian Culinary Experiences") + result count + search bar
+- Filter row: region category pills + cuisine type select + group size select
+- Responsive grid of ExperienceCard
+- Load More pagination + empty state
 
 ### 4. Update `src/App.tsx`
-Add route: `<Route path="/venues" element={<Venues />} />`
+Add route: `<Route path="/experiences" element={<Experiences />} />`
 
 ### 5. Update `src/components/Header.tsx`
-Add "Venues" to `navLinks` array: `{ label: "Venues", path: "/venues" }`
+Add "Experiences" to `navLinks` array
 
 ## Files
 
 | File | Action |
 |------|--------|
-| `src/data/venuesData.ts` | Create |
-| `src/components/VenueCard.tsx` | Create |
-| `src/pages/Venues.tsx` | Create |
+| `src/data/experiencesData.ts` | Create |
+| `src/components/ExperienceCard.tsx` | Create |
+| `src/pages/Experiences.tsx` | Create |
 | `src/App.tsx` | Add route |
 | `src/components/Header.tsx` | Add nav link |
 
