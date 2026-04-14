@@ -165,7 +165,6 @@ const Restaurants = () => {
       </div>
 
       <Footer />
-      <FloatingChatButton />
     </div>
   );
 };

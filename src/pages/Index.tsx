@@ -184,7 +184,6 @@ const Index = () => {
       </main>
 
       <Footer />
-      <FloatingChatButton />
     </div>
   );
 };
