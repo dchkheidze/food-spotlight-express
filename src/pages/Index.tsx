@@ -38,6 +38,25 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Discovery Feed */}
+        <section className="py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <h2 className="text-[26px] font-medium mb-5" style={{ color: "#0F0804", fontFamily: "'Playfair Display', serif" }}>
+              What's Happening in Tbilisi
+            </h2>
+            <div className="max-w-[680px] flex flex-col gap-3">
+              {feedItems.slice(0, 6).map((item) => (
+                <FeedCard key={item.id} item={item} />
+              ))}
+            </div>
+            <div className="max-w-[680px] mt-4">
+              <Link to="/feed" className="text-[14px] font-medium" style={{ color: "#D85A30" }}>
+                See all in feed →
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Cuisine Quick-Filters */}
           <section className="py-6">
