@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RestaurantCard from "@/components/RestaurantCard";
+import FeedCard from "@/components/feed/FeedCard";
 import { cuisineFilters, weekendEvents, deals, newsItems } from "@/data/homeMockData";
 import { listingRestaurants } from "@/data/listingData";
+import { feedItems } from "@/data/feedData";
 
 const newOpeningRestaurants = listingRestaurants.filter((r) => r.isNew);
 const featuredRestaurants = listingRestaurants.filter((r) => r.isFeatured || r.rating >= 4.7).slice(0, 6);
