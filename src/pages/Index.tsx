@@ -1,5 +1,5 @@
 import { Search } from "lucide-react";
-import FloatingChatButton from "@/components/chat/FloatingChatButton";
+
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -184,7 +184,6 @@ const Index = () => {
       </main>
 
       <Footer />
-      <FloatingChatButton />
     </div>
   );
 };
