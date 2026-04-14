@@ -36,7 +36,7 @@ export const feedItems: FeedItem[] = [
   // Promotions
   {
     id: "promo-1",
-    type: "promotion",
+    type: "promotion" as const,
     date: "2026-04-14T10:00:00Z",
     image: "https://picsum.photos/seed/barbarestan/800/450",
     restaurantName: "Barbarestan",
