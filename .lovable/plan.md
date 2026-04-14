@@ -1,25 +1,38 @@
 
 
-# Add Images to Feed Event Cards
+# AI-Powered Hero Search
 
 ## Problem
-Event cards in the feed have `image: ""` in `feedData.ts` and the `EventCard` component doesn't render any image — it only shows a coral date badge with day/month.
+The user wants the hero search bar on the homepage to be AI-powered — typing a query and pressing Enter/clicking search should call an AI model and display restaurant recommendations inline below the search bar.
 
-## Solution
-1. Add Unsplash image URLs to the 3 event items in `feedData.ts`
-2. Redesign `EventCard.tsx` to show an image at the top (like other feed cards), with the date badge overlaid on the image
+## Issue with the Provided Code
+The provided code calls `api.anthropic.com` directly from the browser. This **will not work** because:
+1. Anthropic's API blocks browser requests (CORS)
+2. No API key header is included in the fetch call
+3. Exposing an API key in client-side code is a security risk
 
-## Changes
+## Adapted Solution
+Use the **existing `restogo-chat` Edge Function** (already deployed) which proxies to the Lovable AI Gateway. This is already set up and working for the chat drawer. I'll adapt the system prompt for the hero search use case to return structured JSON.
 
-### `src/data/feedData.ts`
-Add image URLs to the 3 event entries:
-- event-1 (Wine & Cheese Festival): wine/cheese themed image
-- event-2 (Street Food Saturday): street food image
-- event-3 (Supra Masterclass): Georgian cooking image
+I'll also fix the data field references: the mock data uses `location` (not `area`) and `district`, and has no `tags` field.
 
-### `src/components/feed/EventCard.tsx`
-Redesign to include:
-- Top image section (aspect ratio ~16:9) with the event image
-- Date badge (coral square with day/month) overlaid on the top-left of the image
-- Event details below the image (name, venue, time, price, ticket CTA)
+## Changes — `src/pages/Index.tsx` only
+
+1. Add `useState` import
+2. Add state variables: `query`, `loading`, `aiAnswer`, `aiCards`
+3. Build `RESTAURANTS_CONTEXT` from `listingRestaurants` using correct fields (`location`, `district`, `cuisine`, `rating`, `priceRange`)
+4. Add `handleSearch` function that:
+   - Calls the existing edge function with a system prompt requesting JSON output (`{"answer": "...", "restaurants": ["Name1", ...]}`)
+   - Parses the streamed response, extracts the JSON
+   - Matches restaurant names back to `listingRestaurants` for card data
+5. Replace the static `<input>` in the hero section with:
+   - Controlled input with Enter-to-search
+   - Search button (coral circle with arrow)
+   - Quick suggestion chips ("best khinkali open late", "romantic dinner with wine", etc.)
+   - Loading indicator (3-dot pulse)
+   - AI answer card ("RestoGo recommends")
+   - Matched restaurant result cards (image, name, cuisine, location, rating — linked to detail page)
+6. Everything else on the page stays untouched
+
+No new files, no new dependencies, no changes to any other component or route.
 
