@@ -1,20 +1,25 @@
 
 
-# Add FloatingChatButton to All Pages
+# Add Images to Feed Event Cards
 
 ## Problem
-The AI chat button only appears on the Homepage and Restaurants page. It's missing from Blog, BlogArticle, Events, Venues, Experiences, Feed, Rankings, and CollectionDetail pages.
+Event cards in the feed have `image: ""` in `feedData.ts` and the `EventCard` component doesn't render any image — it only shows a coral date badge with day/month.
 
 ## Solution
-Instead of adding the button to each page individually, move `<FloatingChatButton />` into `App.tsx` so it renders globally on every route. Then remove it from `Index.tsx` and `Restaurants.tsx`.
+1. Add Unsplash image URLs to the 3 event items in `feedData.ts`
+2. Redesign `EventCard.tsx` to show an image at the top (like other feed cards), with the date badge overlaid on the image
 
 ## Changes
 
-| File | Change |
-|------|--------|
-| `src/App.tsx` | Import and render `<FloatingChatButton />` after `<Routes>`, inside `<BrowserRouter>` |
-| `src/pages/Index.tsx` | Remove `FloatingChatButton` import and usage |
-| `src/pages/Restaurants.tsx` | Remove `FloatingChatButton` import and usage |
+### `src/data/feedData.ts`
+Add image URLs to the 3 event entries:
+- event-1 (Wine & Cheese Festival): wine/cheese themed image
+- event-2 (Street Food Saturday): street food image
+- event-3 (Supra Masterclass): Georgian cooking image
 
-This ensures the chat button is available on every current and future page without needing per-page imports.
+### `src/components/feed/EventCard.tsx`
+Redesign to include:
+- Top image section (aspect ratio ~16:9) with the event image
+- Date badge (coral square with day/month) overlaid on the top-left of the image
+- Event details below the image (name, venue, time, price, ticket CTA)
 
