@@ -175,7 +175,7 @@ export const feedItems = ([
     byline: "By RestGo Editorial",
     readTime: "4 min read",
   },
-].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+] as FeedItem[]).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 export const feedFilterTabs = [
   { label: "All", value: "all" },
