@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import RestaurantCard from "@/components/RestaurantCard";
+import FeedCard from "@/components/feed/FeedCard";
 import { cuisineFilters, weekendEvents, deals, newsItems } from "@/data/homeMockData";
 import { listingRestaurants } from "@/data/listingData";
+import { feedItems } from "@/data/feedData";
 
 const newOpeningRestaurants = listingRestaurants.filter((r) => r.isNew);
 const featuredRestaurants = listingRestaurants.filter((r) => r.isFeatured || r.rating >= 4.7).slice(0, 6);
@@ -32,6 +34,25 @@ const Index = () => {
                 className="w-full h-11 pl-10 pr-4 rounded-xl bg-white text-[14px] font-normal placeholder:text-black/35 outline-none"
                 style={{ border: "0.5px solid #F09977" }}
               />
+            </div>
+          </div>
+        </section>
+
+        {/* Discovery Feed */}
+        <section className="py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <h2 className="text-[26px] font-medium mb-5" style={{ color: "#0F0804", fontFamily: "'Playfair Display', serif" }}>
+              What's Happening in Tbilisi
+            </h2>
+            <div className="max-w-[680px] flex flex-col gap-3">
+              {feedItems.slice(0, 6).map((item) => (
+                <FeedCard key={item.id} item={item} />
+              ))}
+            </div>
+            <div className="max-w-[680px] mt-4">
+              <Link to="/feed" className="text-[14px] font-medium" style={{ color: "#D85A30" }}>
+                See all in feed →
+              </Link>
             </div>
           </div>
         </section>

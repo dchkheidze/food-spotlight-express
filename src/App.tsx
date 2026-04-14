@@ -13,6 +13,7 @@ import CollectionDetail from "./pages/CollectionDetail.tsx";
 import Events from "./pages/Events.tsx";
 import Venues from "./pages/Venues.tsx";
 import Experiences from "./pages/Experiences.tsx";
+import Feed from "./pages/Feed.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/events" element={<Events />} />
           <Route path="/venues" element={<Venues />} />
           <Route path="/experiences" element={<Experiences />} />
+          <Route path="/feed" element={<Feed />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
