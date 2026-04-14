@@ -15,7 +15,7 @@ import Venues from "./pages/Venues.tsx";
 import Experiences from "./pages/Experiences.tsx";
 import Feed from "./pages/Feed.tsx";
 import NotFound from "./pages/NotFound.tsx";
-import FloatingChatButton from "@/components/chat/FloatingChatButton";
+
 
 const queryClient = new QueryClient();
 
@@ -40,7 +40,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <FloatingChatButton />
+        
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
