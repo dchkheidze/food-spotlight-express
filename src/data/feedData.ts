@@ -32,7 +32,7 @@ export interface FeedItem {
   readTime?: string;
 }
 
-export const feedItems: FeedItem[] = [
+export const feedItems = ([
   // Promotions
   {
     id: "promo-1",
