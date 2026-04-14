@@ -30,8 +30,8 @@ export function getActivePromotions(): Array<{ restaurant: string; promoText: st
   return feedItems
     .filter((item) => item.type === "promotion")
     .map((item) => ({
-      restaurant: item.title,
-      promoText: item.description,
+      restaurant: item.restaurantName || "",
+      promoText: item.promoHeadline || item.description || "",
       validUntil: item.date,
     }));
 }
