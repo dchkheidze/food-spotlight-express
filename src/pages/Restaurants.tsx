@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Search, ArrowUpDown, MapPin } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FloatingChatButton from "@/components/chat/FloatingChatButton";
 import RestaurantCard from "@/components/RestaurantCard";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -164,6 +165,7 @@ const Restaurants = () => {
       </div>
 
       <Footer />
+      <FloatingChatButton />
     </div>
   );
 };
