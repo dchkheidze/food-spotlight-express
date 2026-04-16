@@ -489,6 +489,11 @@ export type Database = {
           cuisine_tags: string[] | null
           description: string | null
           features: string[] | null
+          google_last_synced_at: string | null
+          google_photos: Json | null
+          google_place_id: string | null
+          google_rating: number | null
+          google_review_count: number | null
           id: string
           instagram_url: string | null
           is_published: boolean | null
@@ -520,6 +525,11 @@ export type Database = {
           cuisine_tags?: string[] | null
           description?: string | null
           features?: string[] | null
+          google_last_synced_at?: string | null
+          google_photos?: Json | null
+          google_place_id?: string | null
+          google_rating?: number | null
+          google_review_count?: number | null
           id?: string
           instagram_url?: string | null
           is_published?: boolean | null
@@ -551,6 +561,11 @@ export type Database = {
           cuisine_tags?: string[] | null
           description?: string | null
           features?: string[] | null
+          google_last_synced_at?: string | null
+          google_photos?: Json | null
+          google_place_id?: string | null
+          google_rating?: number | null
+          google_review_count?: number | null
           id?: string
           instagram_url?: string | null
           is_published?: boolean | null
