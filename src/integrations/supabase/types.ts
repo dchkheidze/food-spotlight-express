@@ -14,7 +14,128 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      cities: {
+        Row: {
+          country: string | null
+          created_at: string
+          id: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          country?: string | null
+          created_at?: string
+          id?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          country?: string | null
+          created_at?: string
+          id?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
+      cuisines: {
+        Row: {
+          created_at: string
+          emoji: string | null
+          id: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          created_at?: string
+          emoji?: string | null
+          id?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          created_at?: string
+          emoji?: string | null
+          id?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
+      job_categories: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
+      neighborhoods: {
+        Row: {
+          city_id: string
+          created_at: string
+          id: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          city_id: string
+          created_at?: string
+          id?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          city_id?: string
+          created_at?: string
+          id?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "neighborhoods_city_id_fkey"
+            columns: ["city_id"]
+            isOneToOne: false
+            referencedRelation: "cities"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      supplier_categories: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          slug: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          slug: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +144,27 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      addon_type:
+        | "homepage_spotlight"
+        | "category_pin"
+        | "extra_promo_post"
+        | "job_board_post"
+        | "push_notification_blast"
+        | "new_opening_feature"
+      app_role: "restaurant" | "supplier" | "jobseeker" | "admin"
+      application_status:
+        | "APPLIED"
+        | "SHORTLISTED"
+        | "INTERVIEW"
+        | "OFFERED"
+        | "REJECTED"
+        | "HIRED"
+      job_status: "DRAFT" | "PUBLISHED" | "CLOSED"
+      offer_type: "PRODUCT" | "SERVICE"
+      price_level: "budget" | "moderate" | "upscale" | "fine_dining"
+      promo_post_status: "draft" | "scheduled" | "published" | "expired"
+      subscription_tier: "freemium" | "standard" | "premium"
+      visibility_status: "PRIVATE" | "PUBLIC"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +291,30 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      addon_type: [
+        "homepage_spotlight",
+        "category_pin",
+        "extra_promo_post",
+        "job_board_post",
+        "push_notification_blast",
+        "new_opening_feature",
+      ],
+      app_role: ["restaurant", "supplier", "jobseeker", "admin"],
+      application_status: [
+        "APPLIED",
+        "SHORTLISTED",
+        "INTERVIEW",
+        "OFFERED",
+        "REJECTED",
+        "HIRED",
+      ],
+      job_status: ["DRAFT", "PUBLISHED", "CLOSED"],
+      offer_type: ["PRODUCT", "SERVICE"],
+      price_level: ["budget", "moderate", "upscale", "fine_dining"],
+      promo_post_status: ["draft", "scheduled", "published", "expired"],
+      subscription_tier: ["freemium", "standard", "premium"],
+      visibility_status: ["PRIVATE", "PUBLIC"],
+    },
   },
 } as const
